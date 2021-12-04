@@ -149,8 +149,10 @@ public class FirstPersonController : MonoBehaviour
         }
     }
 
+
     void Start()
     {
+
         if(lockCursor)
         {
             Cursor.lockState = CursorLockMode.Locked;
@@ -182,7 +184,7 @@ public class FirstPersonController : MonoBehaviour
             sprintBarHeight = screenHeight * sprintBarHeightPercent;
 
             sprintBarBG.rectTransform.sizeDelta = new Vector3(sprintBarWidth, sprintBarHeight, 0f);
-            sprintBar.rectTransform.sizeDelta = new Vector3(sprintBarWidth - 2, sprintBarHeight - 2, 0f);
+            sprintBar.rectTransform.sizeDelta = new Vector3(sprintBarWidth, sprintBarHeight, 0f);
 
             if(hideBarWhenFull)
             {

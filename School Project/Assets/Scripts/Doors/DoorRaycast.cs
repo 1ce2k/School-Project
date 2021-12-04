@@ -13,7 +13,7 @@ public class DoorRaycast : MonoBehaviour
 
     [SerializeField] private KeyCode openDoorKey = KeyCode.F;
 
-    [SerializeField] private Image crosshair = null;
+
     private bool isCrosshairActive;
     private bool doOnce;
 
@@ -33,9 +33,7 @@ public class DoorRaycast : MonoBehaviour
                 if (!doOnce)
                 {
                     raycastedObj = hit.collider.gameObject.GetComponent<MyDoorController>();
-                    CrosshairChange(true);
                 }
-
                 isCrosshairActive = true;
                 doOnce = true;
 
@@ -50,22 +48,8 @@ public class DoorRaycast : MonoBehaviour
         {
             if (isCrosshairActive)
             {
-                CrosshairChange(false);
                 doOnce = false;
             }
-        }
-    }
-
-    void CrosshairChange(bool on)
-    {
-        if (on && !doOnce)
-        {
-            crosshair.color = Color.red;
-        }
-        else
-        {
-            crosshair.color = Color.white;
-            isCrosshairActive = false;
         }
     }
 }

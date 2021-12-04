@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: be80045f29c1bae42923dfc9f90a9094
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Botera TFE
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 329b5df65e7dc1641b4d18403f6ed6c7, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

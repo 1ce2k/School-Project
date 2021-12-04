@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: a517300ca83bbc84b83870543c9d91f3
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - BrowalliaUPC
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: c29442d7d6f4a394fb19c79c405e17bc, type: 3}
+  - {fileID: 12800000, guid: 45fa3215f2dcbde4db75ace5dc300013, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

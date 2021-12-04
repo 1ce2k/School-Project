@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 2612d510dccf96145a2298c6b13b573d
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Beepo
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: e2653344151d19b4389addd8d11f455f, type: 3}
+  - {fileID: 12800000, guid: a0550b194237e654bbe21d23131062d6, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
