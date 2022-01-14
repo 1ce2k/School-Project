@@ -9,13 +9,17 @@ public class CameraContol : MonoBehaviour
     public float gravity = 20.0f;
     private Vector3 moveDir = Vector3.zero;
     private CharacterController controller;
+#pragma warning disable IDE0051 // Remove unused private members
     void Start()
+#pragma warning restore IDE0051 // Remove unused private members
     {
         controller = GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
+#pragma warning disable IDE0051 // Remove unused private members
     void Update()
+#pragma warning restore IDE0051 // Remove unused private members
     {
         if (controller.isGrounded)
         {

@@ -31,7 +31,6 @@ public class Pause_Menu : MonoBehaviour
     {
         Cam.enabled = true;
         Cursor.lockState = CursorLockMode.Locked;
-        
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         IsPaused = false;
