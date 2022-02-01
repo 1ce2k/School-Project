@@ -4,8 +4,13 @@ using UnityEngine;
 public class ShootableObject : MonoBehaviour
 {
 	public int currentHealth = 3;
+	public int _hitsCounter;
 
-	public void Damage(int damageAmount)
+   public void Update()
+    {
+        
+    }
+    public void Damage(int damageAmount)
 	{
 		currentHealth -= damageAmount;
 

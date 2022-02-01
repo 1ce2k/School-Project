@@ -29,7 +29,6 @@ public class Pause_Menu : MonoBehaviour
 
     public void Resume()
     {
-        Cam.enabled = true;
         Cursor.lockState = CursorLockMode.Locked;
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
@@ -38,7 +37,6 @@ public class Pause_Menu : MonoBehaviour
 
     void Pause()
     {
-        Cam.enabled = false;
         Cursor.lockState = CursorLockMode.Confined;
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;

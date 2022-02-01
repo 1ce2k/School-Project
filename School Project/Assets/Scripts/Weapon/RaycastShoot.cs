@@ -53,6 +53,7 @@ public class RaycastShoot : MonoBehaviour
                 if (health != null)
                 {
                     health.Damage(gunDamage);
+                    
                 }
 
                 if (hit.rigidbody != null)

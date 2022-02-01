@@ -7,6 +7,9 @@ TagManager:
   - InteractiveObject
   - ShowOnPause
   - ShowOnFinish
+  - Button
+  - InteractiveObject2
+  - Button2
   layers:
   - Default
   - TransparentFX

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ButtonRaycast : MonoBehaviour
 {
-    // Start is called before the first frame update
     [SerializeField] private readonly float rayLength = 5f;
     [SerializeField] private LayerMask layerMaskInteract;
     [SerializeField] private readonly string excludeLayerName = null;
@@ -18,12 +17,14 @@ public class ButtonRaycast : MonoBehaviour
     private bool isCrosshairActive;
     private bool doOnce;
 
-    private const string interactableTag = "InteractiveObject";
+    private const string interactableTag = "Button";
+    private const string interactableTag2 = "Button2";
 
-    public GameObject spawner;
     public GameObject weapon;
     public GameObject _questionToStart;
+    public GameObject _questionToStartTour2;
     public Camera Cam;
+    public GameObject _crossHair;
 
 
     public void Update()
@@ -46,7 +47,22 @@ public class ButtonRaycast : MonoBehaviour
                 if (Input.GetKeyDown(openDoorKey))
                 {
                     raycastedObj.PlayAnimation();
-                    ButtonPressed();
+                    Tour1();
+                }
+            }
+            if (hit.collider.CompareTag(interactableTag2))
+            {
+                if (!doOnce)
+                {
+                    raycastedObj = hit.collider.gameObject.GetComponent<ButtonController>();
+                }
+                isCrosshairActive = true;
+                doOnce = true;
+
+                if (Input.GetKeyDown(openDoorKey))
+                {
+                    raycastedObj.PlayAnimation();
+                    Tour2();
                 }
             }
         }
@@ -60,24 +76,21 @@ public class ButtonRaycast : MonoBehaviour
         }
     }
 
-    public void ButtonPressed()
+    
+
+    public void Tour1()
     {
-        Cam.enabled = false;
-        Cursor.lockState = CursorLockMode.None;
         _questionToStart.SetActive(true);
-        Time.timeScale = 0f;
-
-
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        _crossHair.SetActive(false);
     }
 
-    public void GameStart()
+    public void Tour2()
     {
-        Cam.enabled = true;
-        Cursor.lockState = CursorLockMode.Locked;
-        _questionToStart.SetActive(false);
-        spawner.SetActive(true);
-        weapon.SetActive(true);
-        Time.timeScale = 1f;
-
+        _questionToStartTour2.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        _crossHair.SetActive(false);
     }
 }

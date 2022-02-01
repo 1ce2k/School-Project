@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class DoorRaycast : MonoBehaviour
+public class DoorRaycast2 : MonoBehaviour
 {
     [SerializeField] private readonly float rayLength = 5f;
     [SerializeField] private LayerMask layerMaskInteract;
@@ -17,11 +16,11 @@ public class DoorRaycast : MonoBehaviour
     private bool isCrosshairActive;
     private bool doOnce;
 
-    private const string interactableTag = "InteractiveObject";
+    private const string interactableTag = "InteractiveObject2";
 
-#pragma warning disable IDE0051
+#pragma warning disable IDE0051 
     private void Update()
-#pragma warning restore IDE0051 
+#pragma warning restore IDE0051
     {
 #pragma warning disable IDE0018 
         RaycastHit hit;
