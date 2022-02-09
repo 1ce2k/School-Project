@@ -2,22 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Score : MonoBehaviour
 {
+    //score valuables
     public int _score;
     public Text _scoreValue;
     public int _hits;
+    public Text _finalScoreValue;
 
+    //here we make valuable of objects in the scene, in Unity we need to attach them to the script
     public GameObject _gun;
     public GameObject _win1;
     public GameObject _win2;
-    public Text _finalScore;
+    public GameObject _Score;
+    public GameObject _FinalScore;
 
-    public float time = 0f;
-    public float timeToWait = 10f;
-    public float timer = 0f;
-
+    //here we set our player, also will be needed to attach object in Unity
     public GameObject player;
 
     #region(Questions)
@@ -69,12 +71,13 @@ public class Score : MonoBehaviour
     public GameObject _spawner20;
     #endregion
 
+    //setting up component that is on our player, here script that allows our player to open door of second tour 
     void Start()
     {
         player.GetComponent<DoorRaycast2>().enabled = false;
-        
     }
 
+    //checking how many targets did you hit and activating questions after getting needed count of hits to activate 
     public void Update()
     {
         #region(CheckHits)
@@ -151,15 +154,11 @@ public class Score : MonoBehaviour
             _hits++;
         }
 
-        if (_hits == 108)
-        {
-            Debug.Log(_hits);
-        }
-
         if (_hits == 109)
         {
             player.GetComponent<DoorRaycast2>().enabled = true;
             _gun.SetActive(false);
+            _win1.SetActive(true);
             _hits++;
         }
         
@@ -171,7 +170,7 @@ public class Score : MonoBehaviour
             _hits++;
         }
 
-        if (_hits == 131)
+        if (_hits == 141)
         {
             _quest13.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
@@ -179,7 +178,7 @@ public class Score : MonoBehaviour
             _hits++;
         }
 
-        if (_hits == 142)
+        if (_hits == 157)
         {
             _quest14.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
@@ -187,7 +186,7 @@ public class Score : MonoBehaviour
             _hits++;
         }
 
-        if (_hits == 153)
+        if (_hits == 173)
         {
             _quest15.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
@@ -195,15 +194,15 @@ public class Score : MonoBehaviour
             _hits++;
         }
 
-        if (_hits == 164)
+        if (_hits == 189)
         {
-            _quest15.SetActive(true);
+            _quest16.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             _hits++;
         }
 
-        if (_hits == 175)
+        if (_hits == 205)
         {
             _quest17.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
@@ -211,7 +210,7 @@ public class Score : MonoBehaviour
             _hits++;
         }
 
-        if (_hits == 186)
+        if (_hits == 221)
         {
             _quest18.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
@@ -219,7 +218,7 @@ public class Score : MonoBehaviour
             _hits++;
         }
 
-        if (_hits == 197)
+        if (_hits == 237)
         {
             _quest19.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
@@ -227,18 +226,33 @@ public class Score : MonoBehaviour
             _hits++;
         }
 
-        if (_hits == 208)
+        if (_hits == 253)
         {
             _quest20.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             _hits++;
         }
-        #endregion
 
-        
+        if(_hits == 269)
+        {
+            _Score.SetActive(false);
+            _FinalScore.SetActive(true);
+            _finalScoreValue.text = _score.ToString();
+            _win2.SetActive(true);
+            Time.timeScale = 0;
+
+            // check if the SPACE key is pressed, and load the main menu
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                SceneManager.LoadScene("Main");
+                Time.timeScale = 1;
+            }
+        }
+        #endregion  
     }
 
+    // adding 1 point after hitting 1 target
     public void AddScore()
     {
         _score++;
@@ -246,24 +260,33 @@ public class Score : MonoBehaviour
         _hits++;
     }
 
+    //adding 15 points for correct answer
     public void CorrectAns()
     {
         _score += 15;
         _scoreValue.text = _score.ToString();
 
     }
-
+    //-5 points for incorrect answer for tour 1
     public void InCorrectAns()
     {
         _score -= 5;
         _scoreValue.text = _score.ToString();
     }
+    //-10 points for incorrect answer for tour 2
+    public void InCorrectAns2()
+    {
+        _score -= 10;
+        _scoreValue.text = _score.ToString();
+    }
+    //lock cursot to center and make it imvisible 
     public void CursorLocked()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
 
+    // functions that will diactivate question after correct answer and turn on target spawners 
     #region(QuestionFunctions)
     public void Question1_1()
     {
